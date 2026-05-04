@@ -70,7 +70,7 @@ export default function ServicePage() {
           <h1 className="font-serif text-5xl sm:text-6xl text-ivory-100 mb-4">Пути Служения</h1>
           <div className="w-16 h-px bg-gold-400/50 mx-auto my-6" />
           <p className="font-sans text-base text-ivory-200/60 max-w-md mx-auto">
-            Хришикеша Махарадж путешествует по священным местам и к преданным по всему миру. Присоединяйтесь.
+            Хришикеш Махарадж путешествует по священным местам и к преданным по всему миру. Присоединяйтесь.
           </p>
         </div>
       </section>

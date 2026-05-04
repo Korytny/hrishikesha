@@ -100,7 +100,7 @@ export default function HomePage() {
           <div className="flex justify-center lg:justify-end">
             <img
               src="/hero.png"
-              alt="Шрила Хришикеша Махарадж"
+              alt="Шрила Хришикеш Махарадж"
               className="w-[280px] sm:w-[360px] lg:w-[460px] xl:w-[540px] h-auto object-contain"
             />
           </div>
@@ -182,7 +182,7 @@ export default function HomePage() {
               image="/image_3.jpg"
             />
             <TeacherCard
-              name="Шрила Хришикеша Махарадж"
+              name="Шрила Хришикеш Махарадж"
               title="Ачарья · Представитель миссии SCSM"
               description="Преданный ученик и представитель Шрилы Говинды Махараджа. Ведёт уроки бхакти на русском языке, проводит паломничества, лекции и эфиры по Бхагавад-гите. Его слова наполнены любовью к Господу и искренней заботой о каждой душе."
               delay="0.15s"
@@ -286,7 +286,7 @@ export default function HomePage() {
               Пути Служения
             </h2>
             <p className="reveal font-sans text-base text-ivory-200/60 leading-relaxed mb-8" style={{ transitionDelay: '0.2s' }}>
-              Хришикеша Махарадж регулярно совершает паломничества по священным местам и посещает общины преданных. Вы можете присоединиться к его маршруту или найти сатсанг в вашем городе.
+              Хришикеш Махарадж регулярно совершает паломничества по священным местам и посещает общины преданных. Вы можете присоединиться к его маршруту или найти сатсанг в вашем городе.
             </p>
             <div className="reveal flex flex-col sm:flex-row gap-4" style={{ transitionDelay: '0.3s' }}>
               <Link
@@ -328,7 +328,7 @@ export default function HomePage() {
           <div className="reveal flex justify-center lg:justify-start order-1 lg:order-1" style={{ transitionDelay: '0.2s' }}>
             <img
               src="/image_4.png"
-              alt="Шрила Хришикеша Махарадж"
+              alt="Шрила Хришикеш Махарадж"
               className="w-72 sm:w-96 lg:w-[400px] xl:w-[440px] h-auto object-contain"
             />
           </div>

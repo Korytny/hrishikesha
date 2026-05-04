@@ -12,7 +12,7 @@ export default function Footer() {
               <div className="w-9 h-9 rounded-full border border-gold-400/60 flex items-center justify-center text-gold-400 text-lg">
                 ॐ
               </div>
-              <p className="font-serif text-ivory-100 text-base">Хришикеша Махарадж</p>
+              <p className="font-serif text-ivory-100 text-base">Хришикеш Махарадж</p>
             </div>
             <p className="font-sans text-sm leading-relaxed text-ivory-200/50">
               Ученик и представитель Шрилы Говинды Махараджа. Миссия SCSM.

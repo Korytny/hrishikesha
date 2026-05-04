@@ -38,7 +38,7 @@ export default function Navbar() {
       <nav className="max-w-7xl mx-auto px-4 sm:px-8 flex items-center justify-between h-16 sm:h-20">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3 group">
-          <img src="/logo.png" alt="Хришикеша Махарадж" className="h-12 w-auto" />
+          <img src="/logo.png" alt="Хришикеш Махарадж" className="h-12 w-auto" />
         </Link>
 
         {/* Desktop links */}
