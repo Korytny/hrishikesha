@@ -29,15 +29,20 @@ function Quote({ sanskrit, russian, source }: { sanskrit: string; russian: strin
 
 /* ─── Teacher card ──────────────────────────────────────── */
 function TeacherCard({
-  name, title, description, delay
-}: { name: string; title: string; description: string; delay: string }) {
+  name, title, description, delay, image
+}: { name: string; title: string; description: string; delay: string; image?: string }) {
   return (
     <div className={`reveal card-hover bg-white/60 backdrop-blur-sm rounded-2xl overflow-hidden border border-gold-200/60 shadow-sm`} style={{ transitionDelay: delay }}>
-      <div className="img-placeholder h-72 sm:h-80 text-center p-6 flex-col gap-2" style={{ display: 'flex' }}>
-        <span className="text-gold-400/40 text-5xl mb-2">🪷</span>
-        <span className="text-ivory-200/40 text-sm">Фото {name}</span>
-        <span className="text-ivory-200/20 text-xs mt-1">Замените на реальное фото</span>
-      </div>
+      {image ? (
+        <div className="h-72 sm:h-80 overflow-hidden">
+          <img src={image} alt={name} className="w-full h-full object-cover" />
+        </div>
+      ) : (
+        <div className="img-placeholder h-72 sm:h-80 text-center p-6 flex-col gap-2" style={{ display: 'flex' }}>
+          <span className="text-gold-400/40 text-5xl mb-2">🪷</span>
+          <span className="text-ivory-200/40 text-sm">Фото {name}</span>
+        </div>
+      )}
       <div className="p-6">
         <p className="font-sans text-xs tracking-widest uppercase text-gold-600 mb-1">{title}</p>
         <h3 className="font-serif text-2xl text-dharma-900 mb-3">{name}</h3>
@@ -72,55 +77,62 @@ export default function HomePage() {
   return (
     <>
       {/* ═══ HERO ═══════════════════════════════════════════════ */}
-      <section className="hero-gradient min-h-screen flex flex-col items-center justify-center relative overflow-hidden">
+      <section className="hero-gradient min-h-screen flex items-center relative overflow-hidden">
         {/* Decorative circles */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full border border-gold-400/10 animate-pulse" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full border border-gold-400/15" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200px] h-[200px] rounded-full border border-gold-400/20" />
+        <div className="absolute top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full border border-gold-400/10 animate-pulse" />
+        <div className="absolute top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full border border-gold-400/15" />
+        <div className="absolute top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[200px] h-[200px] rounded-full border border-gold-400/20" />
 
-        {/* Floating OM symbols */}
-        <div className="absolute top-20 left-16 text-gold-400/10 text-6xl animate-float" style={{ animationDelay: '0s' }}>ॐ</div>
-        <div className="absolute bottom-32 right-20 text-gold-400/10 text-4xl animate-float" style={{ animationDelay: '2s' }}>ॐ</div>
-        <div className="absolute top-40 right-32 text-gold-400/8 text-8xl animate-float" style={{ animationDelay: '4s' }}>ॐ</div>
-
-        <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
-          {/* Overline */}
-          <p className="font-sans text-xs sm:text-sm tracking-[0.25em] text-gold-400/70 uppercase mb-8 animate-fade-in">
-            Миссия SCSM · Сознание Кришны
-          </p>
-
-          {/* Main title */}
-          <h1 className="font-serif text-5xl sm:text-6xl lg:text-8xl text-ivory-100 leading-tight mb-4 animate-fade-up" style={{ animationDelay: '0.2s' }}>
-            Шрила<br />
-            <span className="text-gold-shimmer">Хришикеша</span><br />
-            Махарадж
-          </h1>
-
-          {/* Sanskrit quote */}
-          <div className="my-8 animate-fade-up" style={{ animationDelay: '0.5s' }}>
-            <p className="sanskrit text-xl sm:text-2xl text-gold-300 mb-2">
-              сарва-дхарман паритйаджйа
-            </p>
-            <p className="font-serif italic text-ivory-200/60 text-base sm:text-lg">
-              «Оставь все религии и просто предайся Мне»
-            </p>
-            <p className="font-sans text-xs text-gold-500/60 mt-1 tracking-widest">— Бхагавад-гита, 18.66</p>
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-8 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center pt-24 pb-16 lg:py-0">
+          {/* Left — Photo */}
+          <div className="flex justify-center lg:justify-end animate-fade-in">
+            <img
+              src="/hero.png"
+              alt="Шрила Хришикеша Махарадж"
+              className="w-72 sm:w-96 lg:w-[500px] xl:w-[560px] h-auto object-contain"
+            />
           </div>
 
-          {/* CTA buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mt-10 animate-fade-up" style={{ animationDelay: '0.7s' }}>
-            <Link
-              href="/lessons"
-              className="px-8 py-4 bg-saffron-500 hover:bg-saffron-400 text-ivory-50 font-sans text-sm tracking-wide rounded-full transition-all duration-300 shadow-lg shadow-saffron-900/30 hover:shadow-saffron-800/40 hover:-translate-y-0.5"
-            >
-              Начать изучение
-            </Link>
-            <Link
-              href="/parampara"
-              className="px-8 py-4 border border-gold-400/50 text-gold-300 hover:text-gold-200 hover:border-gold-400/80 font-sans text-sm tracking-wide rounded-full transition-all duration-300 hover:bg-gold-400/5"
-            >
-              Гуру Парампара
-            </Link>
+          {/* Right — Text */}
+          <div className="text-center lg:text-left">
+            {/* Overline */}
+            <p className="font-sans text-xs sm:text-sm tracking-[0.25em] text-gold-400/70 uppercase mb-6 animate-fade-in">
+              Миссия SCSM · Сознание Кришны
+            </p>
+
+            {/* Main title */}
+            <h1 className="font-serif text-5xl sm:text-6xl lg:text-7xl text-ivory-100 leading-tight mb-4 animate-fade-up" style={{ animationDelay: '0.2s' }}>
+              Шрила<br />
+              <span className="text-gold-shimmer">Хришикеша</span><br />
+              Махарадж
+            </h1>
+
+            {/* Sanskrit quote */}
+            <div className="my-6 animate-fade-up" style={{ animationDelay: '0.5s' }}>
+              <p className="sanskrit text-xl sm:text-2xl text-gold-300 mb-2">
+                сарва-дхарман паритйаджйа
+              </p>
+              <p className="font-serif italic text-ivory-200/60 text-base sm:text-lg">
+                «Оставь все религии и просто предайся Мне»
+              </p>
+              <p className="font-sans text-xs text-gold-500/60 mt-1 tracking-widest">— Бхагавад-гита, 18.66</p>
+            </div>
+
+            {/* CTA buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mt-8 animate-fade-up" style={{ animationDelay: '0.7s' }}>
+              <Link
+                href="/lessons"
+                className="px-8 py-4 bg-saffron-500 hover:bg-saffron-400 text-ivory-50 font-sans text-sm tracking-wide rounded-full transition-all duration-300 shadow-lg shadow-saffron-900/30 hover:shadow-saffron-800/40 hover:-translate-y-0.5"
+              >
+                Начать изучение
+              </Link>
+              <Link
+                href="/parampara"
+                className="px-8 py-4 border border-gold-400/50 text-gold-300 hover:text-gold-200 hover:border-gold-400/80 font-sans text-sm tracking-wide rounded-full transition-all duration-300 hover:bg-gold-400/5"
+              >
+                Гуру Парампара
+              </Link>
+            </div>
           </div>
         </div>
 
@@ -151,16 +163,18 @@ export default function HomePage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             <TeacherCard
-              name="Шрила Хришикеша Махарадж"
-              title="Ачарья · Представитель миссии SCSM"
-              description="Преданный ученик и представитель Шрилы Говинды Махараджа. Ведёт уроки бхакти на русском языке, проводит паломничества, лекции и эфиры по Бхагавад-гите. Его слова наполнены любовью к Господу и искренней заботой о каждой душе."
-              delay="0s"
-            />
-            <TeacherCard
               name="Шрила Говинда Махарадж"
               title="Гуру · Преемник Шрилы Шридхара Махараджа"
               description="Духовный наставник Хришикеши Махараджа, второй президент Шри Чайтанья Сарасват Матха. Воплощение любви и смирения, он распространил сознание Кришны по всему миру, оставив неоценимое наследие."
+              delay="0s"
+              image="/image_3.jpg"
+            />
+            <TeacherCard
+              name="Шрила Хришикеша Махарадж"
+              title="Ачарья · Представитель миссии SCSM"
+              description="Преданный ученик и представитель Шрилы Говинды Махараджа. Ведёт уроки бхакти на русском языке, проводит паломничества, лекции и эфиры по Бхагавад-гите. Его слова наполнены любовью к Господу и искренней заботой о каждой душе."
               delay="0.15s"
+              image="/image_2.jpg"
             />
           </div>
 
@@ -283,30 +297,42 @@ export default function HomePage() {
       </section>
 
       {/* ═══ FINAL CTA ══════════════════════════════════════════ */}
-      <section className="bg-gradient-to-br from-saffron-600 to-saffron-800 py-24 px-6 text-center">
-        <div className="max-w-2xl mx-auto">
-          <p className="reveal sanskrit text-3xl text-gold-200 mb-4">Харе Кришна</p>
-          <h2 className="reveal font-serif text-4xl sm:text-5xl text-ivory-50 mb-6" style={{ transitionDelay: '0.1s' }}>
-            Начните свой путь
-          </h2>
-          <p className="reveal font-sans text-base text-ivory-100/70 leading-relaxed mb-10" style={{ transitionDelay: '0.2s' }}>
-            Подпишитесь на Telegram-канал Гурудева, чтобы получать ежедневные уроки, шлоки и объявления о предстоящих эфирах.
-          </p>
-          <div className="reveal flex flex-col sm:flex-row gap-4 justify-center" style={{ transitionDelay: '0.3s' }}>
-            <Link
-              href="/contacts"
-              className="px-8 py-4 bg-ivory-100 text-saffron-700 font-sans text-sm tracking-wide rounded-full hover:bg-white transition-all duration-300 shadow-lg shadow-saffron-900/20"
-            >
-              Связаться с нами
-            </Link>
-            <a
-              href="https://t.me/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-8 py-4 border border-ivory-100/40 text-ivory-100 font-sans text-sm tracking-wide rounded-full hover:bg-white/10 transition-all duration-300"
-            >
-              ✈ Telegram канал
-            </a>
+      <section className="bg-gradient-to-br from-saffron-600 to-saffron-800 py-24 px-6">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6 items-center">
+          {/* Left — Text */}
+          <div className="text-center lg:text-left">
+            <p className="reveal sanskrit text-3xl text-gold-200 mb-4">Харе Кришна</p>
+            <h2 className="reveal font-serif text-4xl sm:text-5xl text-ivory-50 mb-6" style={{ transitionDelay: '0.1s' }}>
+              Начните свой путь
+            </h2>
+            <p className="reveal font-sans text-base text-ivory-100/70 leading-relaxed mb-10" style={{ transitionDelay: '0.2s' }}>
+              Подпишитесь на Telegram-канал Гурудева, чтобы получать ежедневные уроки, шлоки и объявления о предстоящих эфирах.
+            </p>
+            <div className="reveal flex flex-col sm:flex-row gap-4 justify-center lg:justify-start" style={{ transitionDelay: '0.3s' }}>
+              <Link
+                href="/contacts"
+                className="px-8 py-4 bg-ivory-100 text-saffron-700 font-sans text-sm tracking-wide rounded-full hover:bg-white transition-all duration-300 shadow-lg shadow-saffron-900/20"
+              >
+                Связаться с нами
+              </Link>
+              <a
+                href="https://t.me/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-8 py-4 border border-ivory-100/40 text-ivory-100 font-sans text-sm tracking-wide rounded-full hover:bg-white/10 transition-all duration-300"
+              >
+                ✈ Telegram канал
+              </a>
+            </div>
+          </div>
+
+          {/* Right — Photo */}
+          <div className="reveal flex justify-center lg:justify-end" style={{ transitionDelay: '0.2s' }}>
+            <img
+              src="/image_4.png"
+              alt="Шрила Хришикеша Махарадж"
+              className="w-72 sm:w-96 lg:w-[460px] xl:w-[520px] h-auto object-contain"
+            />
           </div>
         </div>
       </section>
