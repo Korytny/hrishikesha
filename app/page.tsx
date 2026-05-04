@@ -88,55 +88,47 @@ export default function HomePage() {
 
   return (
     <>
-      {/* ═══ HERO ═══════════════════════════════════════════════ */}
+      {/* ═══ HERO ══════════════════════════════════════════════ */}
       <section className="hero-gradient h-screen flex items-end relative overflow-hidden">
         {/* Decorative circles */}
-        <div className="absolute top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full border border-gold-400/10" />
-        <div className="absolute top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full border border-gold-400/15" />
-        <div className="absolute top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[200px] h-[200px] rounded-full border border-gold-400/20" />
+        <div className="absolute bottom-0 left-1/3 -translate-x-1/2 w-[600px] h-[600px] rounded-full border border-gold-400/10" />
+        <div className="absolute bottom-0 left-1/3 -translate-x-1/2 w-[400px] h-[400px] rounded-full border border-gold-400/15" />
+        <div className="absolute bottom-0 left-1/3 -translate-x-1/2 w-[200px] h-[200px] rounded-full border border-gold-400/20" />
 
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-8 grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-8 items-end">
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-8 grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-8 items-end h-full">
           {/* Left — Photo */}
           <div className="flex justify-center lg:justify-end">
             <img
               src="/hero.png"
               alt="Шрила Хришикеш Махарадж"
-              className="w-[280px] sm:w-[360px] lg:w-[460px] xl:w-[540px] h-auto object-contain"
+              className="w-[240px] sm:w-[360px] lg:w-[460px] xl:w-[540px] h-auto object-contain"
             />
           </div>
 
           {/* Right — Text */}
-          <div className="text-center lg:text-left my-auto">
-            {/* Overline */}
-            <p className="font-sans text-xs sm:text-sm tracking-[0.25em] text-gold-400/70 uppercase mb-6">
-              Миссия SCSM · Сознание Кришны
-            </p>
-
+          <div className="text-center lg:text-left lg:mb-12">
             {/* Main title */}
             <h1 className="font-serif text-5xl sm:text-6xl lg:text-7xl text-ivory-100 leading-tight mb-4">
               Шрила<br />
-              <span className="text-gold-shimmer">Хришикеша</span><br />
+              <span className="text-gold-shimmer">Хришикеш</span><br />
               Махарадж
             </h1>
 
             {/* Sanskrit quote */}
             <div className="my-6">
-              <p className="sanskrit text-xl sm:text-2xl text-gold-300 mb-2">
-                сарва-дхарман паритйаджйа
+              <p className="font-serif italic text-ivory-200/60 text-base sm:text-lg leading-relaxed mb-3">
+                «Я склоняюсь перед лотосными стопами Шри Гуру, который, как говорится во всех писаниях и как считают все садху, является Самими Господом, и который в то же время является дорогим преданным Господа»
               </p>
-              <p className="font-serif italic text-ivory-200/60 text-base sm:text-lg">
-                «Оставь все религии и просто предайся Мне»
-              </p>
-              <p className="font-sans text-xs text-gold-500/60 mt-1 tracking-widest">— Бхагавад-гита, 18.66</p>
+              <p className="font-sans text-sm text-gold-500/40 tracking-wide">— «Шри Гурваштакам», Вишванатх Чакраварти Тхакур</p>
             </div>
 
             {/* CTA buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mt-8">
               <Link
-                href="/lessons"
+                href="/service"
                 className="px-8 py-4 bg-saffron-500 hover:bg-saffron-400 text-ivory-50 font-sans text-sm tracking-wide rounded-full transition-all duration-300 shadow-lg shadow-saffron-900/30 hover:shadow-saffron-800/40 hover:-translate-y-0.5"
               >
-                Начать изучение
+                Пути Служения
               </Link>
               <Link
                 href="/parampara"
@@ -205,13 +197,16 @@ export default function HomePage() {
       <section className="bg-dharma-800 py-12 px-6 mandala-bg">
         <div className="reveal max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
           <div className="text-center md:text-left">
-            <p className="sanskrit text-3xl sm:text-4xl text-gold-300 mb-4">
-              харер нама харер нама
+            <p className="sanskrit text-2xl sm:text-3xl text-gold-300 mb-4 leading-relaxed">
+              кр̣ш̣н̣а-бхакти-раса-бха̄вита̄ матих̣<br/>
+              крӣйата̄м̣ йади куто 'пи лабхйате<br/>
+              татра лаулйам апи мӯлйам экалам̇<br/>
+              джанма-кот̣и-сукр̣таир на лабхйате
             </p>
-            <p className="font-serif italic text-ivory-200/80 text-base sm:text-lg leading-relaxed mb-4">
-              «Только Имя Господа, только Имя Господа, только Имя Господа — вот единственный путь в эпоху Кали»
+            <p className="font-serif italic text-ivory-200/80 text-sm sm:text-base leading-relaxed mb-4">
+              Настоящая преданность Кришне (кришна-бхакти) очень редко достижима. Где бы вы ни увидели такую преданность, приобретите ее ценой своего страстного желания, лаулйам. Лишь оно может дать вам это сокровище. Это единственная цена, и миллиарды жизней в добродетели не дадут вам кришна-бхакти. Для этого необходим голод, и он возникает, когда желудок пуст. Сначала примите немного лекарства и очистите свой организм. Тогда постепенно появится голод.
             </p>
-            <p className="font-sans text-xs text-gold-500/60 tracking-widest">— Брихан-нарадия Пурана</p>
+            <p className="font-sans text-sm text-gold-500/60 tracking-wide">— Говинда Махарадж</p>
           </div>
 
           <div className="flex justify-center">
