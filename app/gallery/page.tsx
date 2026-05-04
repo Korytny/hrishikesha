@@ -19,15 +19,17 @@ function useReveal() {
 }
 
 const photos = [
-  { id: 1, caption: 'Навадвипа-дхама', location: 'Индия', aspect: 'tall' },
-  { id: 2, caption: 'Сатсанг в Москве', location: 'Россия', aspect: 'wide' },
-  { id: 3, caption: 'Паломничество', location: 'Вриндаван', aspect: 'square' },
-  { id: 4, caption: 'Шри Чайтанья Сарасват Матх', location: 'Навадвипа', aspect: 'wide' },
-  { id: 5, caption: 'Лекция', location: 'Санкт-Петербург', aspect: 'square' },
-  { id: 6, caption: 'Пуджа', location: 'Индия', aspect: 'tall' },
-  { id: 7, caption: 'С преданными', location: 'Киев', aspect: 'square' },
-  { id: 8, caption: 'Майяпур', location: 'Индия', aspect: 'wide' },
-  { id: 9, caption: 'Арчана', location: 'Матх', aspect: 'square' },
+  { id: 1, caption: 'Фото 1', location: '', src: '/1.jpg' },
+  { id: 2, caption: 'Фото 2', location: '', src: '/2.jpg' },
+  { id: 3, caption: 'Фото 3', location: '', src: '/3.jpg' },
+  { id: 11, caption: 'Фото 11', location: '', src: '/11.jpg' },
+  { id: 4, caption: 'Фото 4', location: '', src: '/4.jpg' },
+  { id: 5, caption: 'Фото 5', location: '', src: '/5.jpg' },
+  { id: 6, caption: 'Фото 6', location: '', src: '/6.jpg' },
+  { id: 7, caption: 'Фото 7', location: '', src: '/7.jpg' },
+  { id: 8, caption: 'Фото 8', location: '', src: '/8.jpg' },
+  { id: 9, caption: 'Фото 9', location: '', src: '/9.jpg' },
+  { id: 10, caption: 'Фото 10', location: '', src: '/10.jpg' },
 ]
 
 const videos = [
@@ -38,20 +40,9 @@ const videos = [
 ]
 
 function PhotoCard({ photo }: { photo: typeof photos[0] }) {
-  const heights: Record<string, string> = {
-    tall:   'h-80',
-    wide:   'h-44',
-    square: 'h-56',
-  }
-
   return (
-    <div className="reveal card-hover rounded-xl overflow-hidden group relative">
-      <div className={`img-placeholder ${heights[photo.aspect]} w-full`}>
-        <div className="flex flex-col items-center gap-1 opacity-30">
-          <span className="text-3xl">🪷</span>
-          <span className="text-xs">фото</span>
-        </div>
-      </div>
+    <div className="reveal card-hover rounded-xl overflow-hidden group relative bg-white">
+      <img src={photo.src} alt={photo.caption} className="w-full h-auto object-contain" />
       <div className="absolute inset-0 bg-gradient-to-t from-dharma-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-4">
         <p className="font-serif text-ivory-100 text-sm">{photo.caption}</p>
         <p className="font-sans text-xs text-gold-300/70">{photo.location}</p>
@@ -101,7 +92,7 @@ export default function GalleryPage() {
           {tab === 'photos' && (
             <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 space-y-4">
               {photos.map((p, i) => (
-                <div key={p.id} className="break-inside-avoid" style={{ transitionDelay: `${i * 0.05}s` }}>
+                <div key={p.id} style={{ transitionDelay: `${i * 0.05}s` }}>
                   <PhotoCard photo={p} />
                 </div>
               ))}

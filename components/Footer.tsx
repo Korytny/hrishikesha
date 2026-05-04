@@ -82,16 +82,6 @@ export default function Footer() {
             </Link>
           </div>
         </div>
-
-        {/* Bottom */}
-        <div className="mt-12 pt-6 border-t border-gold-500/10 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="font-sans text-xs text-ivory-200/30">
-            © 2024 Шрила Хришикеша Махарадж. Все материалы защищены.
-          </p>
-          <p className="font-serif italic text-gold-400/40 text-xs">
-            Шри Шри Гуру Гаурангу Джайа-Джайа
-          </p>
-        </div>
       </div>
     </footer>
   )
