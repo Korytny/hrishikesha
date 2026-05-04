@@ -59,18 +59,25 @@ function TeacherCard({
 
 /* ─── Teaching preview card ─────────────────────────────── */
 function TeachingCard({
-  tag, title, excerpt, href, delay
-}: { tag: string; title: string; excerpt: string; href: string; delay: string }) {
+  tag, title, excerpt, href, delay, image
+}: { tag: string; title: string; excerpt: string; href: string; delay: string; image?: string }) {
   return (
-    <Link href={href} className={`reveal card-hover block bg-white/50 border border-gold-200/50 rounded-xl p-6 group`} style={{ transitionDelay: delay }}>
-      <span className="inline-block px-3 py-1 bg-saffron-50 text-saffron-600 rounded-full text-xs font-sans tracking-wide mb-3">
-        {tag}
-      </span>
-      <h4 className="font-serif text-xl text-dharma-900 mb-2 group-hover:text-saffron-600 transition-colors">
-        {title}
-      </h4>
-      <p className="font-sans text-sm text-dharma-600 leading-relaxed">{excerpt}</p>
-      <p className="font-sans text-xs text-gold-500 mt-4 tracking-wide">Читать далее →</p>
+    <Link href={href} className={`reveal card-hover block bg-white/50 border border-gold-200/50 rounded-xl overflow-hidden group`} style={{ transitionDelay: delay }}>
+      {image && (
+        <div className="h-48 overflow-hidden">
+          <img src={image} alt={title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+        </div>
+      )}
+      <div className="p-6">
+        <span className="inline-block px-3 py-1 bg-saffron-50 text-saffron-600 rounded-full text-xs font-sans tracking-wide mb-3">
+          {tag}
+        </span>
+        <h4 className="font-serif text-xl text-dharma-900 mb-2 group-hover:text-saffron-600 transition-colors">
+          {title}
+        </h4>
+        <p className="font-sans text-sm text-dharma-600 leading-relaxed">{excerpt}</p>
+        <p className="font-sans text-xs text-gold-500 mt-4 tracking-wide">Читать далее →</p>
+      </div>
     </Link>
   )
 }
@@ -82,24 +89,24 @@ export default function HomePage() {
   return (
     <>
       {/* ═══ HERO ═══════════════════════════════════════════════ */}
-      <section className="hero-gradient min-h-screen flex items-center relative overflow-hidden">
+      <section className="hero-gradient h-screen flex items-end relative overflow-hidden">
         {/* Decorative circles */}
         <div className="absolute top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full border border-gold-400/10" />
         <div className="absolute top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full border border-gold-400/15" />
         <div className="absolute top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[200px] h-[200px] rounded-full border border-gold-400/20" />
 
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-8 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center pt-24 pb-16 lg:py-0">
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-8 grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-8 items-end">
           {/* Left — Photo */}
           <div className="flex justify-center lg:justify-end">
             <img
               src="/hero.png"
               alt="Шрила Хришикеша Махарадж"
-              className="w-72 sm:w-96 lg:w-[500px] xl:w-[560px] h-auto object-contain"
+              className="w-[280px] sm:w-[360px] lg:w-[460px] xl:w-[540px] h-auto object-contain"
             />
           </div>
 
           {/* Right — Text */}
-          <div className="text-center lg:text-left">
+          <div className="text-center lg:text-left my-auto">
             {/* Overline */}
             <p className="font-sans text-xs sm:text-sm tracking-[0.25em] text-gold-400/70 uppercase mb-6">
               Миссия SCSM · Сознание Кришны
@@ -195,15 +202,25 @@ export default function HomePage() {
       </section>
 
       {/* ═══ QUOTE BANNER ═══════════════════════════════════════ */}
-      <section className="bg-dharma-800 py-20 px-6 mandala-bg">
-        <div className="reveal max-w-3xl mx-auto text-center">
-          <p className="sanskrit text-3xl sm:text-4xl text-gold-300 mb-4">
-            харер нама харер нама
-          </p>
-          <p className="font-serif italic text-ivory-200/80 text-base sm:text-lg leading-relaxed mb-4">
-            «Только Имя Господа, только Имя Господа, только Имя Господа — вот единственный путь в эпоху Кали»
-          </p>
-          <p className="font-sans text-xs text-gold-500/60 tracking-widest">— Брихан-нарадия Пурана</p>
+      <section className="bg-dharma-800 py-12 px-6 mandala-bg">
+        <div className="reveal max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+          <div className="text-center md:text-left">
+            <p className="sanskrit text-3xl sm:text-4xl text-gold-300 mb-4">
+              харер нама харер нама
+            </p>
+            <p className="font-serif italic text-ivory-200/80 text-base sm:text-lg leading-relaxed mb-4">
+              «Только Имя Господа, только Имя Господа, только Имя Господа — вот единственный путь в эпоху Кали»
+            </p>
+            <p className="font-sans text-xs text-gold-500/60 tracking-widest">— Брихан-нарадия Пурана</p>
+          </div>
+
+          <div className="flex justify-center">
+            <img
+              src="/095.jpg"
+              alt="Божества"
+              className="w-full max-w-md h-auto object-cover rounded-2xl shadow-2xl"
+            />
+          </div>
         </div>
       </section>
 
@@ -227,6 +244,7 @@ export default function HomePage() {
               excerpt="Кришна раскрывает Арджуне фундаментальное различие между временным телом и вечной душой..."
               href="/lessons"
               delay="0s"
+              image="/105.jpg"
             />
             <TeachingCard
               tag="Вопросы и Ответы"
@@ -234,6 +252,7 @@ export default function HomePage() {
               excerpt="Махарадж отвечает на вопросы слушателей о том, как совместить духовный путь с повседневными заботами..."
               href="/lessons"
               delay="0.1s"
+              image="/098.jpg"
             />
             <TeachingCard
               tag="Шлока дня"
@@ -241,6 +260,7 @@ export default function HomePage() {
               excerpt="«Тем, кто всегда поклоняется Мне с любовью и преданностью, Я дарую то, чего им не хватает...»"
               href="/lessons"
               delay="0.2s"
+              image="/077.jpg"
             />
           </div>
 
@@ -257,7 +277,7 @@ export default function HomePage() {
 
       {/* ═══ PATHS OF SERVICE ════════════════════════════════════ */}
       <section className="bg-dharma-900 py-24 px-6">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-end">
           <div>
             <p className="reveal font-sans text-xs tracking-[0.2em] text-saffron-400 uppercase mb-3">
               Паломничества и служение
@@ -302,8 +322,8 @@ export default function HomePage() {
       </section>
 
       {/* ═══ FINAL CTA ══════════════════════════════════════════ */}
-      <section className="bg-gradient-to-br from-saffron-600 to-saffron-800 py-16 px-6">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6 items-center">
+      <section className="bg-gradient-to-br from-saffron-600 to-saffron-800 py-6 pb-0 px-6">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-0 lg:gap-0 items-end">
           {/* Left — Photo */}
           <div className="reveal flex justify-center lg:justify-start order-1 lg:order-1" style={{ transitionDelay: '0.2s' }}>
             <img
@@ -314,7 +334,7 @@ export default function HomePage() {
           </div>
 
           {/* Right — Text */}
-          <div className="text-center lg:text-left order-2 lg:order-2">
+          <div className="text-center lg:text-left order-2 lg:order-2 my-auto">
             <p className="reveal sanskrit text-3xl text-gold-200 mb-4">Харе Кришна</p>
             <h2 className="reveal font-serif text-4xl sm:text-5xl text-ivory-50 mb-6" style={{ transitionDelay: '0.1s' }}>
               Начните свой путь
