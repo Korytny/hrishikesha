@@ -8,7 +8,12 @@ function useReveal() {
   useEffect(() => {
     const els = document.querySelectorAll('.reveal')
     const observer = new IntersectionObserver(
-      (entries) => entries.forEach((e) => e.isIntersecting && e.target.classList.add('visible')),
+      (entries) => entries.forEach((e) => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible')
+          observer.unobserve(e.target)
+        }
+      }),
       { threshold: 0.15 }
     )
     els.forEach((el) => observer.observe(el))
@@ -32,7 +37,7 @@ function TeacherCard({
   name, title, description, delay, image
 }: { name: string; title: string; description: string; delay: string; image?: string }) {
   return (
-    <div className={`reveal card-hover bg-white/60 backdrop-blur-sm rounded-2xl overflow-hidden border border-gold-200/60 shadow-sm`} style={{ transitionDelay: delay }}>
+    <div className={`reveal card-hover bg-white/80 rounded-2xl overflow-hidden border border-gold-200/60 shadow-sm`} style={{ transitionDelay: delay }}>
       {image ? (
         <div className="h-72 sm:h-80 overflow-hidden">
           <img src={image} alt={name} className="w-full h-full object-cover" />
@@ -79,13 +84,13 @@ export default function HomePage() {
       {/* ═══ HERO ═══════════════════════════════════════════════ */}
       <section className="hero-gradient min-h-screen flex items-center relative overflow-hidden">
         {/* Decorative circles */}
-        <div className="absolute top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full border border-gold-400/10 animate-pulse" />
+        <div className="absolute top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full border border-gold-400/10" />
         <div className="absolute top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full border border-gold-400/15" />
         <div className="absolute top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[200px] h-[200px] rounded-full border border-gold-400/20" />
 
         <div className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-8 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center pt-24 pb-16 lg:py-0">
           {/* Left — Photo */}
-          <div className="flex justify-center lg:justify-end animate-fade-in">
+          <div className="flex justify-center lg:justify-end">
             <img
               src="/hero.png"
               alt="Шрила Хришикеша Махарадж"
@@ -96,19 +101,19 @@ export default function HomePage() {
           {/* Right — Text */}
           <div className="text-center lg:text-left">
             {/* Overline */}
-            <p className="font-sans text-xs sm:text-sm tracking-[0.25em] text-gold-400/70 uppercase mb-6 animate-fade-in">
+            <p className="font-sans text-xs sm:text-sm tracking-[0.25em] text-gold-400/70 uppercase mb-6">
               Миссия SCSM · Сознание Кришны
             </p>
 
             {/* Main title */}
-            <h1 className="font-serif text-5xl sm:text-6xl lg:text-7xl text-ivory-100 leading-tight mb-4 animate-fade-up" style={{ animationDelay: '0.2s' }}>
+            <h1 className="font-serif text-5xl sm:text-6xl lg:text-7xl text-ivory-100 leading-tight mb-4">
               Шрила<br />
               <span className="text-gold-shimmer">Хришикеша</span><br />
               Махарадж
             </h1>
 
             {/* Sanskrit quote */}
-            <div className="my-6 animate-fade-up" style={{ animationDelay: '0.5s' }}>
+            <div className="my-6">
               <p className="sanskrit text-xl sm:text-2xl text-gold-300 mb-2">
                 сарва-дхарман паритйаджйа
               </p>
@@ -119,7 +124,7 @@ export default function HomePage() {
             </div>
 
             {/* CTA buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mt-8 animate-fade-up" style={{ animationDelay: '0.7s' }}>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mt-8">
               <Link
                 href="/lessons"
                 className="px-8 py-4 bg-saffron-500 hover:bg-saffron-400 text-ivory-50 font-sans text-sm tracking-wide rounded-full transition-all duration-300 shadow-lg shadow-saffron-900/30 hover:shadow-saffron-800/40 hover:-translate-y-0.5"
@@ -137,7 +142,7 @@ export default function HomePage() {
         </div>
 
         {/* Scroll indicator */}
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce">
+        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-50">
           <div className="w-px h-12 bg-gradient-to-b from-transparent to-gold-400/50" />
           <div className="w-1.5 h-1.5 rounded-full bg-gold-400/50" />
         </div>

@@ -31,7 +31,7 @@ export default function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled || !isHome
-          ? 'bg-dharma-900/95 backdrop-blur-md shadow-lg shadow-black/20'
+          ? 'bg-dharma-900/95 shadow-lg shadow-black/20'
           : 'bg-transparent'
       }`}
     >
@@ -79,7 +79,7 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="lg:hidden bg-dharma-900/98 backdrop-blur-md border-t border-gold-500/20">
+        <div className="lg:hidden bg-dharma-900/98 border-t border-gold-500/20">
           <ul className="flex flex-col py-4">
             {links.map(({ href, label }) => (
               <li key={href}>
