@@ -195,7 +195,7 @@ export default function HomePage() {
           <p className="sanskrit text-3xl sm:text-4xl text-gold-300 mb-4">
             харер нама харер нама
           </p>
-          <p className="font-serif italic text-ivory-200/80 text-lg sm:text-xl leading-relaxed mb-4">
+          <p className="font-serif italic text-ivory-200/80 text-base sm:text-lg leading-relaxed mb-4">
             «Только Имя Господа, только Имя Господа, только Имя Господа — вот единственный путь в эпоху Кали»
           </p>
           <p className="font-sans text-xs text-gold-500/60 tracking-widest">— Брихан-нарадия Пурана</p>
@@ -297,15 +297,24 @@ export default function HomePage() {
       </section>
 
       {/* ═══ FINAL CTA ══════════════════════════════════════════ */}
-      <section className="bg-gradient-to-br from-saffron-600 to-saffron-800 py-24 px-6">
+      <section className="bg-gradient-to-br from-saffron-600 to-saffron-800 py-16 px-6">
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6 items-center">
-          {/* Left — Text */}
-          <div className="text-center lg:text-left">
+          {/* Left — Photo */}
+          <div className="reveal flex justify-center lg:justify-start order-1 lg:order-1" style={{ transitionDelay: '0.2s' }}>
+            <img
+              src="/image_4.png"
+              alt="Шрила Хришикеша Махарадж"
+              className="w-72 sm:w-96 lg:w-[400px] xl:w-[440px] h-auto object-contain"
+            />
+          </div>
+
+          {/* Right — Text */}
+          <div className="text-center lg:text-left order-2 lg:order-2">
             <p className="reveal sanskrit text-3xl text-gold-200 mb-4">Харе Кришна</p>
             <h2 className="reveal font-serif text-4xl sm:text-5xl text-ivory-50 mb-6" style={{ transitionDelay: '0.1s' }}>
               Начните свой путь
             </h2>
-            <p className="reveal font-sans text-base text-ivory-100/70 leading-relaxed mb-10" style={{ transitionDelay: '0.2s' }}>
+            <p className="reveal font-sans text-base text-ivory-100/70 leading-relaxed mb-8" style={{ transitionDelay: '0.2s' }}>
               Подпишитесь на Telegram-канал Гурудева, чтобы получать ежедневные уроки, шлоки и объявления о предстоящих эфирах.
             </p>
             <div className="reveal flex flex-col sm:flex-row gap-4 justify-center lg:justify-start" style={{ transitionDelay: '0.3s' }}>
@@ -324,15 +333,6 @@ export default function HomePage() {
                 ✈ Telegram канал
               </a>
             </div>
-          </div>
-
-          {/* Right — Photo */}
-          <div className="reveal flex justify-center lg:justify-end" style={{ transitionDelay: '0.2s' }}>
-            <img
-              src="/image_4.png"
-              alt="Шрила Хришикеша Махарадж"
-              className="w-72 sm:w-96 lg:w-[460px] xl:w-[520px] h-auto object-contain"
-            />
           </div>
         </div>
       </section>

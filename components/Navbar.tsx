@@ -38,17 +38,7 @@ export default function Navbar() {
       <nav className="max-w-7xl mx-auto px-4 sm:px-8 flex items-center justify-between h-16 sm:h-20">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3 group">
-          <div className="w-9 h-9 rounded-full border border-gold-400/60 flex items-center justify-center text-gold-400 text-lg group-hover:border-gold-300 transition-colors">
-            ॐ
-          </div>
-          <div className="hidden sm:block">
-            <p className="font-serif text-ivory-100 text-sm leading-tight font-medium tracking-wide">
-              Хришикеша Махарадж
-            </p>
-            <p className="text-gold-400/70 text-[10px] tracking-widest uppercase">
-              Сознание Кришны
-            </p>
-          </div>
+          <img src="/logo.png" alt="Хришикеша Махарадж" className="h-12 w-auto" />
         </Link>
 
         {/* Desktop links */}
