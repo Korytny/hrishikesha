@@ -95,23 +95,22 @@ export default function HomePage() {
         <div className="absolute bottom-0 left-1/3 -translate-x-1/2 w-[400px] h-[400px] rounded-full border border-gold-400/15" />
         <div className="absolute bottom-0 left-1/3 -translate-x-1/2 w-[200px] h-[200px] rounded-full border border-gold-400/20" />
 
-        <div className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-8 grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-8 items-end h-full">
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-8 grid grid-cols-1 md:grid-cols-[40%_60%] gap-4 md:gap-8 items-end h-full">
           {/* Left — Photo */}
-          <div className="flex justify-center lg:justify-end">
+          <div className="flex justify-center md:justify-end">
             <img
               src="/hero.png"
               alt="Шрила Хришикеш Махарадж"
-              className="w-[240px] sm:w-[360px] lg:w-[460px] xl:w-[540px] h-auto object-contain"
+              className="w-[289px] sm:w-[437px] md:w-[558px] lg:w-[655px] xl:w-[715px] h-auto object-contain"
             />
           </div>
 
           {/* Right — Text */}
           <div className="text-center lg:text-left lg:mb-12">
             {/* Main title */}
-            <h1 className="font-serif text-5xl sm:text-6xl lg:text-7xl text-ivory-100 leading-tight mb-4">
-              Шрила<br />
-              <span className="text-gold-shimmer">Хришикеш</span><br />
-              Махарадж
+            <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl text-ivory-100 leading-tight mb-4">
+              Шрила Бхакти Севан<br />
+              <span className="text-gold-shimmer">Хришикеш Махарадж</span>
             </h1>
 
             {/* Sanskrit quote */}
@@ -123,7 +122,7 @@ export default function HomePage() {
             </div>
 
             {/* CTA buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mt-8">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mt-8 mb-8">
               <Link
                 href="/service"
                 className="px-8 py-4 bg-saffron-500 hover:bg-saffron-400 text-ivory-50 font-sans text-sm tracking-wide rounded-full transition-all duration-300 shadow-lg shadow-saffron-900/30 hover:shadow-saffron-800/40 hover:-translate-y-0.5"
@@ -132,7 +131,7 @@ export default function HomePage() {
               </Link>
               <Link
                 href="/parampara"
-                className="px-8 py-4 border border-gold-400/50 text-gold-300 hover:text-gold-200 hover:border-gold-400/80 font-sans text-sm tracking-wide rounded-full transition-all duration-300 hover:bg-gold-400/5"
+                className="hidden lg:block px-8 py-4 border border-gold-400/50 text-gold-300 hover:text-gold-200 hover:border-gold-400/80 font-sans text-sm tracking-wide rounded-full transition-all duration-300 hover:bg-gold-400/5"
               >
                 Гуру Парампара
               </Link>
@@ -161,22 +160,22 @@ export default function HomePage() {
               <span className="text-gold-400 text-lg">🪷</span>
             </div>
             <p className="reveal font-sans text-base text-dharma-600 max-w-xl mx-auto leading-relaxed" style={{ transitionDelay: '0.2s' }}>
-              Истинное духовное знание передаётся через непрерывную цепь учителей и учеников — гуру-парампару. Вот те, кто осветил наш путь.
+              Истинное духовное знание передаётся через непрерывную цепь учителей — гуру-парампару. Те, кто осветил наш путь.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             <TeacherCard
               name="Шрила Говинда Махарадж"
-              title="Гуру · Преемник Шрилы Шридхара Махараджа"
-              description="Духовный наставник Хришикеши Махараджа, второй президент Шри Чайтанья Сарасват Матха. Воплощение любви и смирения, он распространил сознание Кришны по всему миру, оставив неоценимое наследие."
+              title="Президент-Севайте Ачарья Шри Чайтанья Сарасват Матха"
+              description="Преемник Шрилы Шридхара Махараджа. Он распространил концепцию Шри Чайтанья Сарасват Матха — учение своего Шрилы Гуру Махараджа, Шрилы Шридхара Махараджа на всех континентах."
               delay="0s"
               image="/image_3.jpg"
             />
             <TeacherCard
               name="Шрила Хришикеш Махарадж"
-              title="Ачарья · Представитель миссии SCSM"
-              description="Преданный ученик и представитель Шрилы Говинды Махараджа. Ведёт уроки бхакти на русском языке, проводит паломничества, лекции и эфиры по Бхагавад-гите. Его слова наполнены любовью к Господу и искренней заботой о каждой душе."
+              title="Духовный учитель Шри Чайтанья Сарасват Матха"
+              description="Преданный ученик и представитель Шрилы Говинды Махараджа. Его служение посвящено изучению и распространению священных писаний. Вещает на русском языке, проводит паломничества, читает лекции по «Бхагавад-гите» и «Шримад-Бхагаватам»."
               delay="0.15s"
               image="/image_2.jpg"
             />
